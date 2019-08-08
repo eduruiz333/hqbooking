@@ -1,0 +1,100 @@
+// xs — Extra Small Screens
+@media (min-width: 320px) {
+  //Datapicker
+  .datapicker {
+    .form-group {
+      width: 100%;
+    }
+  }
+
+  //Pictures
+  .pictures {
+    .img {
+      height: 150px;
+    }
+  }
+}
+
+// s — Small Screens
+@media (min-width: 640px) {
+  .logo-header {
+    a {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  #modal-money {
+    .list-currency {
+      li {
+        display: flex;
+        width: 50%;
+      }
+    }
+  }
+
+  .w-md-25 {
+    width: 25% !important;
+  }
+  .w-md-50 {
+    width: 50% !important;
+  }
+  .w-md-75 {
+    width: 75% !important;
+  }
+  .w-md-100 {
+    width: 100% !important;
+  }
+  .w-md-auto {
+    width: auto !important;
+  }
+}
+
+// m — Medium Screens
+@media (min-width: 960px) {
+  #modal-money {
+    .list-currency {
+      li {
+        display: flex;
+        width: 33%;
+      }
+    }
+  }
+
+  .w-lg-25 {
+    width: 25% !important;
+  }
+  .w-lg-50 {
+    width: 50% !important;
+  }
+  .w-lg-75 {
+    width: 75% !important;
+  }
+  .w-lg-100 {
+    width: 100% !important;
+  }
+  .w-lg-auto {
+    width: auto !important;
+  }
+}
+
+// l — Large Screens
+@media (min-width: 1200px) {
+  //Datapicker
+  .datapicker {
+    .form-group {
+      width: unset;
+    }
+  }
+
+  //Pictures
+  .pictures {
+    .img {
+      height: 200px;
+    }
+  }
+}
+
+// xl — Extra Large Screens
+@media (min-width: 1600px) {
+
+}

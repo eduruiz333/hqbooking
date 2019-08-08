@@ -1,0 +1,485 @@
+/** Global **/
+html,
+body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  -ms-font-smoothing: antialiased !important;
+  min-height: 100%;
+}
+
+/** Body **/
+body {
+  margin: 0;
+  padding: 0;
+
+  background-color: $bgBody;
+
+  .container {
+    background-color: $white;
+  }
+
+  .raised {
+    &.lv1 {
+      box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+    }
+    &.lv2 {
+      box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  //Form fileds
+  .custom-file-control,
+  .form-control,
+  .is-focused .custom-file-control,
+  .is-focused .form-control {
+    box-shadow: none !important;
+    background-image: linear-gradient(0deg, #f2994a 2px, rgba(242, 153, 74, 0) 0),
+    linear-gradient(0deg, rgba(0, 0, 0, .26) 1px, transparent 0) !important;
+  }
+  .form-group.line-light {
+    background-image: linear-gradient(0deg, #acacac 2px, rgba(242, 153, 74, 0) 0),
+    linear-gradient(0deg, rgba(0, 0, 0, .26) 1px, transparent 0) !important;
+  }
+  label {
+    color: $textGreyLight !important;
+  }
+  select.form-control:not([size]):not([multiple]) {
+    height: calc(2.4375rem);
+  }
+
+  //Datapicker
+  .dtp {
+    div.dtp-date,
+    table.dtp-picker-days tr>td>a.selected {
+      background-color: #f2994a;
+    }
+    >.dtp-content>.dtp-date-view>header.dtp-header {
+      background-color: #c27a3b;
+    }
+    .p10>a {
+      color: #ffffff;
+    }
+  }
+
+  //Toogle IOs
+  .form-switch {
+    display: inline-block;
+    cursor: pointer;
+
+    i {
+      position: relative;
+      display: inline-block;
+      margin-right: .5rem;
+      width: 36px;
+      height: 16px;
+      border-radius: 23px;
+      vertical-align: text-bottom;
+      transition: all 0.3s linear;
+      background-color: $grayLight;
+
+      &i:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 32px;
+        height: 12px;
+        background-color: $white;
+        border-radius: 11px;
+        transform: translate3d(2px, 2px, 0) scale3d(1, 1, 1);
+        transition: all 0.25s linear;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 12px;
+        height: 12px;
+        background-color: $white;
+        border-radius: 11px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24);
+        transform: translate3d(2px, 2px, 0);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    &:active i::after {
+      width: 28px;
+      transform: translate3d(2px, 2px, 0);
+    }
+
+    &:active input:checked + i::after { transform: translate3d(16px, 2px, 0); }
+    input {
+      display: none;
+      &:checked + i { background-color: $mainClr; }
+      &:checked + i::before { transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0); }
+      &:checked + i::after { transform: translate3d(22px, 2px, 0); }
+    }
+  }
+
+
+
+
+
+
+  // Buttons
+  .btn {
+    &.btn-default {
+      background-color: $gray;
+      color: $white;
+      &:hover {
+        background-color: $mainClr;
+      }
+      &.disabled:hover {
+        background-color: $gray;
+        cursor: default;
+      }
+    }
+
+    &.btn-orange {
+      background-color: $mainClr;
+      color: $white;
+    }
+
+    &.slim {
+      padding: 2px 10px;
+    }
+  }
+
+  .msg-error {
+    position: absolute;
+    display: none;
+    &.on-error {
+      display: block;
+      color: $danger;
+      font-size: .7rem;
+    }
+
+    .nav-link.active {
+      height: 100%;
+      background-color: red;
+    }
+  }
+
+  //Dark box
+  .greydark {
+    background-color: $grayDark;
+    color: $textLight;
+
+    .border-bottom,
+    &.border-bottom {
+      border-bottom: solid 1px $textGreyLight !important;
+    }
+    .border-top,
+    &.border-top {
+      border-top: solid 1px $textGreyLight !important;
+    }
+
+    .nav-link {
+      color: $textLight;;
+      &.active {
+        color: $mainClr;
+      }
+    }
+    .nav-tabs {
+      border-bottom: solid 1px $textGreyLight;
+    }
+
+    .nav-tabs .nav-link {
+      &.active,
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  //Vertical align
+  .v-align {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+
+    .top {
+      align-self: flex-start;
+    }
+    .bottom {
+      align-self: flex-end;
+    }
+  }
+
+  //R$
+  .currency {
+    &.real {
+      &:before {
+        content: "R$ ";
+      }
+    }
+
+    &.dolar {
+      &:before {
+        content: "US$ ";
+      }
+    }
+
+    &.euro {
+      &:before {
+        content: "EU€ ";
+      }
+    }
+
+    &.yen {
+      &:before {
+        content: "JP¥$ ";
+      }
+    }
+  }
+
+  //Plus - minus buttons
+  .num-increase {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    span {
+      padding: 0 10px;
+      margin: 0;
+    }
+
+    i {
+      color: $mainClr;
+      border-radius: 45px;
+      cursor: pointer;
+      font-size: 24px;
+
+      &:hover {
+        box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+/** CONTENT **/
+//Tab nav
+.nav-tabs .nav-link {
+  border-bottom: solid 1px transparent;
+  height: 100%;
+  &.active,
+  &:hover {
+    border-bottom: solid 1px $mainClr;
+    background-color: $light;
+  }
+}
+
+//Checkin checkout dates
+.datapicker .card-body,
+.about .card-body {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.datapicker {
+  i {
+    font-size: 18px;
+  }
+  .card-body {
+    .row {
+      align-items: baseline;
+    }
+
+    .fa-calendar-alt {
+      color: $textGreyLight;
+    }
+  }
+}
+
+//About & contact
+.about .card-body {
+  .map-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+//Pictures
+.pictures {
+  a {
+    color: $textDark !important;
+  }
+  .img {
+    display: flex;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    .description {
+      width: fit-content;
+      line-height: 1em;
+      border-top-right-radius: 5px;
+      background: rgba(255, 255, 255, .6);
+    }
+  }
+}
+
+//Room infos
+.room-info {
+  .infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .small {
+    color: $textLight;
+  }
+
+  p.details {
+    font-size: 10px;
+    margin: 0;
+    color: $textDefault;
+    i {
+      font-size: 10px;
+      color: $textDefault;
+    }
+  }
+
+  .amenity {
+    padding-bottom: 10px;
+    i {
+      font-size: 15px;
+    }
+
+    .list-inline-item {
+      margin-right: 0;
+      span {
+        margin-right: 0;
+        svg {
+          //width: 60%;
+        }
+      }
+    }
+  }
+
+  span {
+    margin-right: 15px;
+
+    &.promo {
+      font-size: .7rem;
+      color: $textGreyLight;
+      text-decoration: line-through;
+    }
+    &.value {
+      font-size: 1.1rem;
+    }
+  }
+
+  .options {
+    display: flex;
+  }
+}
+
+//Guests infos
+.guests {
+  form {
+    .form-row{
+      .form-group {
+        width: 48%;
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Modal
+.modal {
+  .modal-content {
+    .modal-header {
+      // padding: 0px 6px 0;
+      border-bottom: 0;
+    }
+    .modal-body {
+      padding-top: 0;
+    }
+    h3 {
+      font-size: 1.5rem;
+      span {
+        display: block;
+        font-size: .9rem;
+        color: $grayLight;
+        margin: .7rem 0 1.5rem 0;
+      }
+    }
+    .amenity {
+      li {
+        display: block;
+        
+        i {
+          width: 20px;
+          text-align: center;
+        }
+      }
+    }
+
+    .owl-slider {
+      .owl-theme .owl-dots {
+        text-align: left;
+        .owl-dot span {
+          width: 20px;
+          height: 20px;
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
+
+//Currency modal
+#modal-money {
+  /* .modal-header {
+    padding-top: 1rem;
+    .close {
+      span {
+        margin-right: 1rem;
+      }
+    }
+  } */
+
+  .list-currency {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      box-sizing: border-box;
+      padding: .5rem;
+      &:hover,
+      &:hover a {
+        background-color: $grayLight;
+        color: $white;
+      }
+
+      span {
+        display: block;
+        width: 40px;
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+
+      }
+    }
+  }
+}
